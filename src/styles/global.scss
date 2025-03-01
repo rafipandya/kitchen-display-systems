@@ -1,0 +1,23 @@
+/* global.scss */
+
+/* root */
+:root {
+    --white: #F9F9F9;
+    --primary: ;
+    --secondary: ;
+    --main-bg: #EFEFEA;
+    --bg-primary: ;
+    --bg-secondary: ;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
