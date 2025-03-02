@@ -8,7 +8,7 @@ export const plus = Plus_Jakarta_Sans({
     fallback: ["Helvetica", "Arial", "sans-serif"],
 });
 
-const baselTheme = createTheme({
+const baseTheme = createTheme({
     direction: "ltr",
     palette: {
         primary: {
@@ -22,10 +22,11 @@ const baselTheme = createTheme({
             dark: "#23afdb",
         },
         success: {
-            main: "#13DEB9",
+            main: "#5FD068",
             light: "#E6FFFA",
             dark: "#02b3a9",
             contrastText: "#ffffff",
+            
         },
         info: {
             main: "#539BFF",
@@ -54,7 +55,7 @@ const baselTheme = createTheme({
             600: "#2A3547",
         },
         text: {
-            primary: "#2A3547",
+            primary: "#1D1616",
             secondary: "#5A6A85",
         },
         action: {
@@ -63,6 +64,9 @@ const baselTheme = createTheme({
             hover: "#f6f9fc",
         },
         divider: "#e5eaef",
+        background: {
+            default: "#EFEFEA",
+        }
     },
     typography: {
         fontFamily: plus.style.fontFamily,
@@ -142,4 +146,4 @@ const baselTheme = createTheme({
     },
 });
 
-export { baselTheme };
+export { baseTheme };

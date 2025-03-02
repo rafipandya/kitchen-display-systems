@@ -1,9 +1,0 @@
-@use '../global.scss';
-
-/* layout */
-.layout {
-    display: grid;
-    grid-template-columns: 1fr;
-    height: 100vh;
-    background: var(--main-bg);
-}
