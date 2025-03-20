@@ -19,18 +19,19 @@ interface Props {
 	children: React.ReactNode;
 }
 
-
-
-export default function RootLayout({ children }: { children: React.ReactNode; }) {
-	const [isSidebarOpen, setSidebarOpen] = useState(true);
-  	const [isMobileSidebarOpen, setMobileSidebarOpen] = useState(false);
-  	
+export default function RootLayout({ children }: { children: React.ReactNode; }) {  	
 	return (
     	<MainContainer className="layout">
-
+			{/* Navbar Section */}
         	<Navbar />
 
-			<Container>
+			{/* Body Section */}
+			<Container
+				sx={{
+					maxWidth: '100% !important',
+					padding: '24px'
+				}}
+			>
 				<Box>{children}</Box>
 			</Container>
         </MainContainer>
