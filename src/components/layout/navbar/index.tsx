@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 // Material UI
-import {AppBar, Box, Button, Toolbar, styled} from '@mui/material';
+import { AppBar, Box, Button, Toolbar, styled } from '@mui/material';
 
 // Theme
 import { baseTheme } from '@/theme';
@@ -23,10 +23,11 @@ const NavbarContainer = styled(AppBar)(({ theme }) => ({
 const NavbarContent = styled(Toolbar)(({ theme }) => ({
     width: '100%',
     height: '100%',
+    minHeight: 64,
     display: 'grid',
     gridTemplateColumns: 'repeat(3, 1fr)',
     gridTemplateRows: '1fr',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
 }));
 
 // Online or Offline Network Indicator
@@ -34,58 +35,65 @@ const Indicator = styled(Box)(({ theme }) => ({
     width: '20px',
     height: '20px',
     background: theme.palette.success.main,
-    borderRadius: '4px'
-}))
+    borderRadius: '4px',
+}));
 
 // List of Navigations
 const NavigationList = styled(Box)({
-    display: "flex",
+    display: 'flex',
     height: '100%',
-    justifySelf: 'center'
+    alignItems: 'stretch',
+    justifySelf: 'center',
 });
 // -- End Create Styled Component -- //
 
 // List of Navigations
-const navItems = ["Active", "Cooking", "Completed"];
+const navItems = ['Active', 'Cooking', 'Completed'];
 
 const Navbar = () => {
-    const [activeTab, setActiveTab] = useState("Active");
+    const [activeTab, setActiveTab] = useState('Active');
 
     return (
         <NavbarContainer position="sticky" color="default">
-            <NavbarContent>    
+            <NavbarContent>
                 <Indicator />
 
                 <NavigationList>
                     {navItems.map((item) => (
                         <Button
-                        key={item}
-                        onClick={() => setActiveTab(item)}
-                        variant="text"
-                        sx={{
-                            minWidth: '120px',
-                            maxWidth: '140px',
-                            color: baseTheme.palette.text.primary,
-                            textTransform: 'uppercase',
-                            fontWeight: activeTab === item ? 'bold' : 'normal',
-                            borderBottom: activeTab === item ? `4px solid ${baseTheme.palette.text.primary}` : 'none',
-                            borderRadius: 0,
-                            paddingBottom: '4px',
-                        }}
-                    >
-                        {item}
-                    </Button>
+                            key={item}
+                            onClick={() => setActiveTab(item)}
+                            variant="text"
+                            sx={{
+                                height: '100%',
+                                alignSelf: 'stretch',
+                                minHeight: 'unset',
+                                py: 0,
+                                minWidth: '120px',
+                                maxWidth: '140px',
+                                color: baseTheme.palette.text.primary,
+                                textTransform: 'uppercase',
+                                fontWeight: activeTab === item ? 'bold' : 'normal',
+                                borderBottom:
+                                    activeTab === item
+                                        ? `4px solid ${baseTheme.palette.text.primary}`
+                                        : 'none',
+                                borderRadius: 0,
+                                paddingBottom: '4px',
+                            }}
+                        >
+                            {item}
+                        </Button>
                     ))}
                 </NavigationList>
 
-                <Box 
-                sx={{
-                    justifySelf: 'end'   
-                }}
+                <Box
+                    sx={{
+                        justifySelf: 'end',
+                    }}
                 >
                     <span>Wednesday, 1 January 2025</span>
                 </Box>
-
             </NavbarContent>
         </NavbarContainer>
     );

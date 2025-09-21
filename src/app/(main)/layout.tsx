@@ -1,39 +1,28 @@
-"use client";
-import { styled, Container, Box } from "@mui/material";
-import React, { useState } from "react";
-import Navbar from "@/components/layout/navbar";
-import { baseTheme } from "@/theme";
+'use client';
 
-const MainContainer = styled("div")(() => ({
-	display: "grid",
-	gridTemplateColumns: "1fr",
-	gridTemplateRows: "70px auto",
-	width: "100%",
-	maxWidth: "100%",
-	height: "100vh",
-	zIndex: 1,
-	background: baseTheme.palette.background.default
-}));
+// MUI Material
+import { styled, Container, Box } from '@mui/material';
+
+// React State
+import React, { useState } from 'react';
+
+// Navbar
+import Navbar from '@/components/layout/navbar';
 
 interface Props {
-	children: React.ReactNode;
+    children: React.ReactNode;
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode; }) {  	
-	return (
-    	<MainContainer className="layout">
-			{/* Navbar Section */}
-        	<Navbar />
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+    return (
+        <Box className="base-layout">
+            {/* Navbar Section */}
+            <Navbar />
 
-			{/* Body Section */}
-			<Container
-				sx={{
-					maxWidth: '100% !important',
-					padding: '24px'
-				}}
-			>
-				<Box>{children}</Box>
-			</Container>
-        </MainContainer>
-  	);
+            {/* Body Section */}
+            <Container className="body-layout">
+                <Box>{children}</Box>
+            </Container>
+        </Box>
+    );
 }
